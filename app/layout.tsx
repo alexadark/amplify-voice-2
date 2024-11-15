@@ -4,7 +4,9 @@ import './globals.css';
 import { storyblokInit, apiPlugin } from '@storyblok/react/rsc';
 import { COMPONENTS } from './components/bloks';
 import Header from './components/Header';
+import Footer from './components/Footer';
 import StoryblokProvider from './components/bloks/StoryblokProvider';
+import { ThemeProvider } from 'next-themes';
 
 const isPreview = process.env.NEXT_PUBLIC_IS_PREVIEW === 'true';
 
@@ -41,14 +43,21 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased font-sans dark:bg-black dark:text-white`}
       >
-        <Header />
-        {isPreview ? (
-          <StoryblokProvider>{children}</StoryblokProvider>
-        ) : (
-          children
-        )}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem={false}
+        >
+          <Header />
+          {isPreview ? (
+            <StoryblokProvider>{children}</StoryblokProvider>
+          ) : (
+            children
+          )}
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );

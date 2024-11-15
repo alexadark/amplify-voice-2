@@ -3,9 +3,11 @@ import {
   StoryblokServerComponent,
 } from '@storyblok/react/rsc';
 
-const Page = ({ blok }) => (
+import { PageStoryblok } from '@/types/component-types-sb';
+
+const Page = ({ blok }: { blok: PageStoryblok }) => (
   <main {...storyblokEditable(blok)}>
-    {blok.body?.map((nestedBlok) => (
+    {blok?.body?.map((nestedBlok) => (
       <StoryblokServerComponent blok={nestedBlok} key={nestedBlok._uid} />
     ))}
   </main>

@@ -1,0 +1,1224 @@
+{
+  "components": [
+    {
+      "name": "all-posts",
+      "display_name": null,
+      "created_at": "2024-11-05T11:59:25.539Z",
+      "updated_at": "2024-11-05T11:59:25.539Z",
+      "id": 6515406,
+      "schema": {
+        "headline": {
+          "type": "text"
+        },
+        "intro": {
+          "type": "richtext"
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "all-posts",
+      "component_group_uuid": null,
+      "color": null,
+      "icon": null,
+      "internal_tags_list": [],
+      "internal_tag_ids": [],
+      "content_type_asset_preview": null
+    },
+    {
+      "name": "all-projects",
+      "display_name": null,
+      "created_at": "2024-11-05T11:59:25.503Z",
+      "updated_at": "2024-11-05T11:59:25.503Z",
+      "id": 6515403,
+      "schema": {
+        "headline": {
+          "type": "text"
+        },
+        "intro": {
+          "type": "richtext"
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "all-projects",
+      "component_group_uuid": null,
+      "color": null,
+      "icon": null,
+      "internal_tags_list": [],
+      "internal_tag_ids": [],
+      "content_type_asset_preview": null
+    },
+    {
+      "name": "author",
+      "display_name": null,
+      "created_at": "2024-11-05T11:59:25.599Z",
+      "updated_at": "2024-11-05T11:59:25.599Z",
+      "id": 6515411,
+      "schema": {
+        "avatar": {
+          "type": "asset",
+          "filetypes": [
+            "images"
+          ]
+        },
+        "bio": {
+          "type": "richtext"
+        },
+        "tab-5f9e8135-80bd-4415-b7b9-981b3acab455": {
+          "display_name": "Seo",
+          "keys": [
+            "seo"
+          ],
+          "pos": 0,
+          "type": "tab"
+        },
+        "twitter": {
+          "type": "text"
+        },
+        "seo": {
+          "type": "bloks",
+          "restrict_type": "",
+          "restrict_components": true,
+          "component_whitelist": [
+            "seo"
+          ]
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": true,
+      "preview_tmpl": null,
+      "is_nestable": false,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "author",
+      "component_group_uuid": null,
+      "color": "#395ece",
+      "icon": null,
+      "internal_tags_list": [],
+      "internal_tag_ids": [],
+      "content_type_asset_preview": null
+    },
+    {
+      "name": "carousel",
+      "display_name": null,
+      "created_at": "2024-11-08T08:42:22.853Z",
+      "updated_at": "2024-11-08T08:42:58.564Z",
+      "id": 6530181,
+      "schema": {
+        "title": {
+          "type": "text",
+          "pos": 0
+        },
+        "description": {
+          "type": "textarea",
+          "pos": 1
+        },
+        "items": {
+          "type": "bloks",
+          "pos": 2,
+          "restrict_type": "",
+          "restrict_components": true,
+          "component_whitelist": [
+            "carousel-item"
+          ]
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "carousel",
+      "component_group_uuid": "all",
+      "color": null,
+      "icon": null,
+      "internal_tags_list": [],
+      "internal_tag_ids": [],
+      "content_type_asset_preview": null,
+      "component_group_name": ""
+    },
+    {
+      "name": "carousel-item",
+      "display_name": null,
+      "created_at": "2024-11-08T08:41:02.973Z",
+      "updated_at": "2024-11-08T08:41:56.184Z",
+      "id": 6530178,
+      "schema": {
+        "title": {
+          "type": "text",
+          "pos": 0
+        },
+        "description": {
+          "type": "richtext",
+          "pos": 1
+        },
+        "image": {
+          "type": "asset",
+          "pos": 2,
+          "filetypes": [
+            "images"
+          ]
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "carousel-item",
+      "component_group_uuid": "all",
+      "color": null,
+      "icon": null,
+      "internal_tags_list": [],
+      "internal_tag_ids": [],
+      "content_type_asset_preview": null,
+      "component_group_name": ""
+    },
+    {
+      "name": "category",
+      "display_name": null,
+      "created_at": "2024-11-05T11:59:25.639Z",
+      "updated_at": "2024-11-05T11:59:25.639Z",
+      "id": 6515414,
+      "schema": {
+        "seo": {
+          "type": "bloks",
+          "restrict_type": "",
+          "restrict_components": true,
+          "component_whitelist": [
+            "seo"
+          ],
+          "pos": 0,
+          "minimum": 1,
+          "maximum": 1
+        },
+        "headline": {
+          "type": "text",
+          "pos": 2,
+          "translatable": true
+        },
+        "tab-b6c77404-36ca-4542-b1f8-a8f0ff13b877": {
+          "display_name": "Seo",
+          "keys": [
+            "seo"
+          ],
+          "pos": 3,
+          "type": "tab"
+        },
+        "image": {
+          "type": "asset",
+          "filetypes": [
+            "images"
+          ],
+          "pos": 4
+        },
+        "description": {
+          "type": "textarea",
+          "pos": 5,
+          "translatable": true
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": true,
+      "preview_tmpl": null,
+      "is_nestable": false,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "category",
+      "component_group_uuid": null,
+      "color": "#1b243f",
+      "icon": null,
+      "internal_tags_list": [],
+      "internal_tag_ids": [],
+      "content_type_asset_preview": null
+    },
+    {
+      "name": "config",
+      "display_name": null,
+      "created_at": "2024-11-05T11:59:25.657Z",
+      "updated_at": "2024-11-08T09:41:57.701Z",
+      "id": 6515416,
+      "schema": {
+        "robots_txt_content": {
+          "type": "textarea",
+          "default_value": "User-agent: *\nAllow: /",
+          "pos": 0,
+          "description": "Write here your robots.txt directives without the Sitemap as it's already included\nYou can find information about how robots.txt works here:\nhttps://developers.google.com/search/docs/crawling-indexing/robots/intro"
+        },
+        "site_url": {
+          "type": "text",
+          "pos": 1
+        },
+        "google_analytics_code": {
+          "type": "text",
+          "pos": 2
+        },
+        "google_tag_manager": {
+          "type": "text",
+          "pos": 3
+        },
+        "default_post_image": {
+          "type": "asset",
+          "filetypes": [
+            "images"
+          ],
+          "required": false,
+          "pos": 4
+        },
+        "posts_per_page": {
+          "type": "number",
+          "pos": 5
+        },
+        "tab-acc2463a-e449-426d-a69d-2f61306438a7": {
+          "display_name": "Header",
+          "keys": [
+            "header_nav",
+            "logo",
+            "title",
+            "cta_label",
+            "cta_link"
+          ],
+          "pos": 6,
+          "type": "tab",
+          "name": "tab-acc2463a-e449-426d-a69d-2f61306438a7"
+        },
+        "tab-ff1fc390-8dde-4e94-b7d0-578afe30818a": {
+          "display_name": "Footer",
+          "keys": [
+            "footer_text"
+          ],
+          "pos": 7,
+          "type": "tab",
+          "name": "tab-ff1fc390-8dde-4e94-b7d0-578afe30818a"
+        },
+        "tab-61f9372a-fad8-4a4c-92ad-0ba2b3232b69": {
+          "display_name": "Social",
+          "keys": [
+            "social_items"
+          ],
+          "pos": 8,
+          "type": "tab",
+          "name": "tab-61f9372a-fad8-4a4c-92ad-0ba2b3232b69"
+        },
+        "tab-0b1fff29-8381-49dc-bcf7-aa7c8ef688e4": {
+          "display_name": "Robot.txt",
+          "keys": [
+            "robot_txt_content",
+            "robots_txt_content"
+          ],
+          "pos": 9,
+          "type": "tab",
+          "name": "tab-0b1fff29-8381-49dc-bcf7-aa7c8ef688e4"
+        },
+        "header_nav": {
+          "type": "bloks",
+          "restrict_type": "",
+          "restrict_components": true,
+          "component_whitelist": [
+            "nav-item"
+          ],
+          "pos": 10
+        },
+        "social_items": {
+          "type": "bloks",
+          "restrict_type": "",
+          "restrict_components": true,
+          "component_whitelist": [
+            "social-item"
+          ],
+          "pos": 11
+        },
+        "footer_text": {
+          "type": "richtext",
+          "customize_toolbar": false,
+          "toolbar": [
+            "bold",
+            "italic",
+            "strike",
+            "underline"
+          ],
+          "translatable": true,
+          "pos": 12
+        },
+        "logo": {
+          "type": "asset",
+          "filetypes": [
+            "images"
+          ],
+          "pos": 13
+        },
+        "title": {
+          "type": "text",
+          "pos": 14
+        },
+        "cta_label": {
+          "type": "text",
+          "pos": 15
+        },
+        "cta_link": {
+          "type": "multilink",
+          "pos": 16
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": true,
+      "preview_tmpl": null,
+      "is_nestable": false,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "config",
+      "component_group_uuid": null,
+      "color": "#1b243f",
+      "icon": "block-keyboard",
+      "internal_tags_list": [],
+      "internal_tag_ids": [],
+      "content_type_asset_preview": null
+    },
+    {
+      "name": "content",
+      "display_name": null,
+      "created_at": "2024-11-05T11:59:25.458Z",
+      "updated_at": "2024-11-05T11:59:25.458Z",
+      "id": 6515400,
+      "schema": {
+        "text": {
+          "translatable": true,
+          "type": "richtext"
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "content",
+      "component_group_uuid": "d9e789f7-6ebc-4761-9829-c875e43d005c",
+      "color": null,
+      "icon": null,
+      "internal_tags_list": [],
+      "internal_tag_ids": [],
+      "content_type_asset_preview": null,
+      "component_group_name": "post-content"
+    },
+    {
+      "name": "hero",
+      "display_name": null,
+      "created_at": "2024-11-08T08:28:12.527Z",
+      "updated_at": "2024-11-08T11:05:38.352Z",
+      "id": 6530086,
+      "schema": {
+        "title": {
+          "type": "text",
+          "pos": 0
+        },
+        "description": {
+          "type": "textarea",
+          "pos": 1,
+          "display_name": "description"
+        },
+        "link": {
+          "type": "multilink",
+          "pos": 2
+        },
+        "image": {
+          "type": "asset",
+          "pos": 3,
+          "filetypes": []
+        },
+        "vapi_block": {
+          "type": "option",
+          "pos": 4,
+          "use_uuid": true,
+          "options": [
+            {
+              "_uid": "e9377dc7-91d9-45b3-83ea-6bbe36093551",
+              "name": "glob",
+              "value": "glob"
+            },
+            {
+              "_uid": "7feaa732-b0e3-46e5-a0e2-65988c7a7920",
+              "value": "orb",
+              "name": "orb"
+            },
+            {
+              "_uid": "ba8bb6dd-5eb4-4484-bed5-b00b000bdd4e",
+              "value": "visualizer",
+              "name": "visualizer"
+            }
+          ],
+          "default_value": "glob"
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "hero",
+      "component_group_uuid": "all",
+      "color": null,
+      "icon": null,
+      "internal_tags_list": [],
+      "internal_tag_ids": [],
+      "content_type_asset_preview": null,
+      "component_group_name": ""
+    },
+    {
+      "name": "how-we-work-card",
+      "display_name": null,
+      "created_at": "2024-11-08T08:44:41.726Z",
+      "updated_at": "2024-11-09T16:52:01.753Z",
+      "id": 6530182,
+      "schema": {
+        "title": {
+          "type": "text",
+          "pos": 0
+        },
+        "icon": {
+          "type": "asset",
+          "pos": 1,
+          "filetypes": [
+            "images"
+          ]
+        },
+        "description": {
+          "type": "richtext",
+          "pos": 2
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "how-we-work-card",
+      "component_group_uuid": "all",
+      "color": null,
+      "icon": null,
+      "internal_tags_list": [],
+      "internal_tag_ids": [],
+      "content_type_asset_preview": null,
+      "component_group_name": ""
+    },
+    {
+      "name": "how-we-work-section",
+      "display_name": null,
+      "created_at": "2024-11-08T08:45:41.831Z",
+      "updated_at": "2024-11-08T08:46:24.629Z",
+      "id": 6530183,
+      "schema": {
+        "title": {
+          "type": "text",
+          "pos": 0
+        },
+        "description": {
+          "type": "textarea",
+          "pos": 1
+        },
+        "items": {
+          "type": "bloks",
+          "pos": 2,
+          "restrict_type": "",
+          "restrict_components": true,
+          "component_whitelist": [
+            "how-we-work-card"
+          ]
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "how-we-work-section",
+      "component_group_uuid": "all",
+      "color": null,
+      "icon": null,
+      "internal_tags_list": [],
+      "internal_tag_ids": [],
+      "content_type_asset_preview": null,
+      "component_group_name": ""
+    },
+    {
+      "name": "last-posts",
+      "display_name": null,
+      "created_at": "2024-11-05T11:59:25.579Z",
+      "updated_at": "2024-11-05T11:59:25.579Z",
+      "id": 6515410,
+      "schema": {
+        "headline": {
+          "type": "text",
+          "translatable": true
+        },
+        "number_of_posts": {
+          "type": "number",
+          "default_value": "3",
+          "description": "The number of posts to show",
+          "display_name": ""
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "last-posts",
+      "component_group_uuid": null,
+      "color": null,
+      "icon": null,
+      "internal_tags_list": [],
+      "internal_tag_ids": [],
+      "content_type_asset_preview": null
+    },
+    {
+      "name": "logo-carousel",
+      "display_name": null,
+      "created_at": "2024-11-08T08:34:05.277Z",
+      "updated_at": "2024-11-08T08:48:58.273Z",
+      "id": 6530091,
+      "schema": {
+        "title": {
+          "type": "text",
+          "pos": 0
+        },
+        "description": {
+          "type": "textarea",
+          "pos": 1
+        },
+        "logos": {
+          "type": "bloks",
+          "pos": 2,
+          "display_name": "items",
+          "restrict_type": "",
+          "restrict_components": true,
+          "component_whitelist": [
+            "logo-item"
+          ]
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "logo-carousel",
+      "component_group_uuid": "all",
+      "color": null,
+      "icon": null,
+      "internal_tags_list": [],
+      "internal_tag_ids": [],
+      "content_type_asset_preview": null,
+      "component_group_name": ""
+    },
+    {
+      "name": "logo-item",
+      "display_name": null,
+      "created_at": "2024-11-08T08:34:35.466Z",
+      "updated_at": "2024-11-08T08:34:46.746Z",
+      "id": 6530123,
+      "schema": {
+        "logo": {
+          "type": "asset",
+          "pos": 0,
+          "filetypes": [
+            "images"
+          ]
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "logo-item",
+      "component_group_uuid": "all",
+      "color": null,
+      "icon": null,
+      "internal_tags_list": [],
+      "internal_tag_ids": [],
+      "content_type_asset_preview": null,
+      "component_group_name": ""
+    },
+    {
+      "name": "nav-item",
+      "display_name": null,
+      "created_at": "2024-11-05T11:59:25.554Z",
+      "updated_at": "2024-11-05T11:59:25.554Z",
+      "id": 6515408,
+      "schema": {
+        "link": {
+          "translatable": true,
+          "type": "multilink"
+        },
+        "label": {
+          "translatable": true,
+          "type": "text"
+        },
+        "is_submenu": {
+          "type": "boolean"
+        },
+        "sub_menu": {
+          "type": "bloks",
+          "restrict_type": "",
+          "restrict_components": true,
+          "component_whitelist": [
+            "nav-item"
+          ]
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "nav-item",
+      "component_group_uuid": null,
+      "color": null,
+      "icon": null,
+      "internal_tags_list": [],
+      "internal_tag_ids": [],
+      "content_type_asset_preview": null
+    },
+    {
+      "name": "page",
+      "display_name": null,
+      "created_at": "2024-11-05T11:59:25.709Z",
+      "updated_at": "2024-11-05T11:59:25.709Z",
+      "id": 6515421,
+      "schema": {
+        "body": {
+          "type": "bloks"
+        },
+        "tab-e94f9421-6b8a-4d69-89f6-f37dd027d9df": {
+          "display_name": "SEO",
+          "keys": [
+            "seo"
+          ],
+          "pos": 0,
+          "type": "tab"
+        },
+        "seo": {
+          "type": "bloks",
+          "restrict_type": "",
+          "restrict_components": true,
+          "component_whitelist": [
+            "seo"
+          ],
+          "minimum": 1,
+          "maximum": 1
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": true,
+      "preview_tmpl": null,
+      "is_nestable": false,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "page",
+      "component_group_uuid": null,
+      "color": "#00b3b0",
+      "icon": null,
+      "internal_tags_list": [],
+      "internal_tag_ids": [],
+      "content_type_asset_preview": null
+    },
+    {
+      "name": "post",
+      "display_name": "Post",
+      "created_at": "2024-11-05T11:59:25.693Z",
+      "updated_at": "2024-11-05T11:59:25.693Z",
+      "id": 6515420,
+      "schema": {
+        "headline": {
+          "translatable": true,
+          "type": "text",
+          "pos": 0
+        },
+        "image": {
+          "type": "asset",
+          "filetypes": [
+            "images"
+          ],
+          "pos": 1
+        },
+        "teaser": {
+          "translatable": true,
+          "type": "textarea",
+          "pos": 2
+        },
+        "content": {
+          "type": "richtext",
+          "pos": 3
+        },
+        "author": {
+          "type": "option",
+          "use_uuid": true,
+          "source": "internal_stories",
+          "filter_content_type": [
+            "author"
+          ],
+          "pos": 4
+        },
+        "categories": {
+          "type": "options",
+          "source": "internal_stories",
+          "filter_content_type": [
+            "category"
+          ],
+          "pos": 5
+        },
+        "tags": {
+          "type": "options",
+          "source": "internal_stories",
+          "filter_content_type": [
+            "tag"
+          ],
+          "pos": 6
+        },
+        "tab-1c2b7139-9854-4fff-b982-8b033e422751": {
+          "display_name": "seo",
+          "keys": [
+            "seo"
+          ],
+          "pos": 7,
+          "type": "tab"
+        },
+        "seo": {
+          "type": "bloks",
+          "restrict_type": "",
+          "restrict_components": true,
+          "component_whitelist": [
+            "seo"
+          ],
+          "minimum": 1,
+          "maximum": 1,
+          "pos": 8
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": true,
+      "preview_tmpl": null,
+      "is_nestable": false,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "Post",
+      "component_group_uuid": null,
+      "color": "#ffac00",
+      "icon": null,
+      "internal_tags_list": [],
+      "internal_tag_ids": [],
+      "content_type_asset_preview": null
+    },
+    {
+      "name": "project",
+      "display_name": null,
+      "created_at": "2024-11-05T11:59:25.522Z",
+      "updated_at": "2024-11-05T11:59:25.522Z",
+      "id": 6515404,
+      "schema": {
+        "headline": {
+          "type": "text",
+          "pos": 0
+        },
+        "images": {
+          "type": "multiasset",
+          "filetypes": [
+            "images"
+          ]
+        },
+        "teaser": {
+          "type": "textarea",
+          "pos": 1
+        },
+        "content": {
+          "type": "richtext",
+          "pos": 2
+        },
+        "cover": {
+          "type": "asset",
+          "filetypes": [
+            "images"
+          ],
+          "pos": 3
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": true,
+      "preview_tmpl": null,
+      "is_nestable": false,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "project",
+      "component_group_uuid": null,
+      "color": "#ff6159",
+      "icon": "block-image",
+      "internal_tags_list": [],
+      "internal_tag_ids": [],
+      "content_type_asset_preview": null
+    },
+    {
+      "name": "seo",
+      "display_name": null,
+      "created_at": "2024-11-05T11:59:25.676Z",
+      "updated_at": "2024-11-05T11:59:25.676Z",
+      "id": 6515418,
+      "schema": {
+        "title": {
+          "translatable": true,
+          "type": "text"
+        },
+        "description": {
+          "translatable": true,
+          "type": "textarea"
+        },
+        "og_title": {
+          "translatable": true,
+          "type": "text"
+        },
+        "og_description": {
+          "translatable": true,
+          "type": "textarea"
+        },
+        "twitter_title": {
+          "translatable": true,
+          "type": "text"
+        },
+        "twitter_description": {
+          "translatable": true,
+          "type": "textarea"
+        },
+        "canonical_url": {
+          "type": "text"
+        },
+        "twitter_image": {
+          "type": "asset",
+          "filetypes": [
+            "images"
+          ],
+          "description": "An image URL which should represent your object.",
+          "key": "twitter_image",
+          "pos": 6
+        },
+        "no_follow": {
+          "type": "boolean"
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "seo",
+      "component_group_uuid": null,
+      "color": null,
+      "icon": null,
+      "internal_tags_list": [],
+      "internal_tag_ids": [],
+      "content_type_asset_preview": null
+    },
+    {
+      "name": "service-item",
+      "display_name": null,
+      "created_at": "2024-11-08T08:36:50.772Z",
+      "updated_at": "2024-11-08T09:11:41.488Z",
+      "id": 6530143,
+      "schema": {
+        "title": {
+          "type": "text",
+          "pos": 0
+        },
+        "description": {
+          "type": "textarea",
+          "pos": 1
+        },
+        "label": {
+          "type": "text",
+          "pos": 2
+        },
+        "link": {
+          "type": "multilink",
+          "pos": 3,
+          "allow_custom_attributes": false
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "service-item",
+      "component_group_uuid": "all",
+      "color": null,
+      "icon": null,
+      "internal_tags_list": [],
+      "internal_tag_ids": [],
+      "content_type_asset_preview": null,
+      "component_group_name": ""
+    },
+    {
+      "name": "services-section",
+      "display_name": null,
+      "created_at": "2024-11-08T08:37:56.047Z",
+      "updated_at": "2024-11-08T08:39:53.076Z",
+      "id": 6530144,
+      "schema": {
+        "title": {
+          "type": "text",
+          "pos": 0
+        },
+        "description": {
+          "type": "textarea",
+          "pos": 1
+        },
+        "services": {
+          "type": "bloks",
+          "pos": 2,
+          "restrict_type": "",
+          "restrict_components": true,
+          "component_whitelist": [
+            "service-item"
+          ]
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "services-section",
+      "component_group_uuid": "all",
+      "color": null,
+      "icon": null,
+      "internal_tags_list": [],
+      "internal_tag_ids": [],
+      "content_type_asset_preview": null,
+      "component_group_name": ""
+    },
+    {
+      "name": "social-item",
+      "display_name": null,
+      "created_at": "2024-11-05T11:59:25.726Z",
+      "updated_at": "2024-11-05T11:59:25.726Z",
+      "id": 6515422,
+      "schema": {
+        "name": {
+          "type": "text",
+          "pos": 0
+        },
+        "icon": {
+          "type": "asset",
+          "filetypes": [
+            "images"
+          ],
+          "pos": 1
+        },
+        "url": {
+          "type": "multilink",
+          "pos": 2
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "social-item",
+      "component_group_uuid": null,
+      "color": null,
+      "icon": null,
+      "internal_tags_list": [],
+      "internal_tag_ids": [],
+      "content_type_asset_preview": null
+    },
+    {
+      "name": "submit-form",
+      "display_name": null,
+      "created_at": "2024-11-10T15:54:22.606Z",
+      "updated_at": "2024-11-10T15:59:02.552Z",
+      "id": 6536784,
+      "schema": {
+        "title": {
+          "type": "text",
+          "pos": 0
+        },
+        "description": {
+          "type": "textarea",
+          "pos": 1
+        },
+        "image": {
+          "type": "asset",
+          "pos": 2,
+          "filetypes": [
+            "images"
+          ]
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "submit-form",
+      "component_group_uuid": "all",
+      "color": null,
+      "icon": null,
+      "internal_tags_list": [],
+      "internal_tag_ids": [],
+      "content_type_asset_preview": null,
+      "component_group_name": ""
+    },
+    {
+      "name": "tag",
+      "display_name": null,
+      "created_at": "2024-11-05T11:59:25.619Z",
+      "updated_at": "2024-11-05T11:59:25.619Z",
+      "id": 6515412,
+      "schema": {
+        "seo": {
+          "type": "bloks",
+          "restrict_type": "",
+          "restrict_components": true,
+          "component_whitelist": [
+            "seo"
+          ],
+          "pos": 0,
+          "minimum": 1,
+          "maximum": 1
+        },
+        "headline": {
+          "type": "text",
+          "translatable": true,
+          "pos": 2
+        },
+        "description": {
+          "type": "richtext",
+          "translatable": true,
+          "pos": 3
+        },
+        "tab-42670311-31db-4dc4-bcd2-8e112ad403ca": {
+          "display_name": "Seo",
+          "keys": [
+            "seo"
+          ],
+          "pos": 4,
+          "type": "tab"
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": true,
+      "preview_tmpl": null,
+      "is_nestable": false,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "tag",
+      "component_group_uuid": null,
+      "color": "#ff6159",
+      "icon": null,
+      "internal_tags_list": [],
+      "internal_tag_ids": [],
+      "content_type_asset_preview": null
+    },
+    {
+      "name": "vapi-block",
+      "display_name": null,
+      "created_at": "2024-11-08T09:18:55.982Z",
+      "updated_at": "2024-11-08T09:20:56.127Z",
+      "id": 6530550,
+      "schema": {
+        "title": {
+          "type": "text",
+          "pos": 0
+        },
+        "description": {
+          "type": "textarea",
+          "pos": 1
+        },
+        "block": {
+          "type": "option",
+          "pos": 2,
+          "use_uuid": true,
+          "options": [
+            {
+              "_uid": "e87b3997-99e6-4b94-b3ef-3737ca00d3f9",
+              "name": "glob",
+              "value": "glob"
+            },
+            {
+              "_uid": "5225aba9-9374-4874-aa35-c99b65b92c5b",
+              "value": "orb",
+              "name": "orb"
+            },
+            {
+              "_uid": "91fb06c2-4508-4b3b-a94d-cff67a8148ba",
+              "value": "simple",
+              "name": "simple"
+            }
+          ],
+          "default_value": "glob"
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "vapi-block",
+      "component_group_uuid": "all",
+      "color": null,
+      "icon": null,
+      "internal_tags_list": [],
+      "internal_tag_ids": [],
+      "content_type_asset_preview": null,
+      "component_group_name": ""
+    }
+  ]
+}
