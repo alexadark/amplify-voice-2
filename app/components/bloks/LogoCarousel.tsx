@@ -9,7 +9,12 @@ interface LogoCarouselProps {
 }
 
 const LogoCarousel = ({ blok }: LogoCarouselProps) => {
-  const logos = [...(blok.logos || []), ...(blok.logos || [])];
+  const originalLogos = blok.logos || [];
+  const duplicatedLogos = originalLogos.map((logo) => ({
+    ...logo,
+    _uid: `${logo._uid}-duplicate`,
+  }));
+  const logos = [...originalLogos, ...duplicatedLogos];
 
   return (
     <div
@@ -18,7 +23,6 @@ const LogoCarousel = ({ blok }: LogoCarouselProps) => {
       className="py-20 bg-black/10 backdrop-blur-sm"
     >
       <div className="max-w-7xl mx-auto px-4">
-        {/* Title and Description */}
         {(blok.title || blok.description) && (
           <div className="text-center mb-12">
             {blok.title && (
@@ -30,7 +34,6 @@ const LogoCarousel = ({ blok }: LogoCarouselProps) => {
           </div>
         )}
 
-        {/* Carousel */}
         <div className="relative overflow-hidden">
           <div className="flex animate-scroll">
             {logos.map((logo, index) => (

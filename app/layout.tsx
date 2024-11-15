@@ -2,11 +2,10 @@ import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 import './globals.css';
 import { storyblokInit, apiPlugin } from '@storyblok/react/rsc';
-import { COMPONENTS } from './components/bloks';
-import Header from './components/Header';
-import Footer from './components/Footer';
-import StoryblokProvider from './components/bloks/StoryblokProvider';
-import { ThemeProvider } from 'next-themes';
+import { COMPONENTS } from '@/components/bloks';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+import StoryblokProvider from '@/components/bloks/StoryblokProvider';
 
 const isPreview = process.env.NEXT_PUBLIC_IS_PREVIEW === 'true';
 
@@ -43,21 +42,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased font-sans dark:bg-black dark:text-white`}
+        className={`${geistSans.variable} ${geistMono.variable} dark antialiased font-sans dark:bg-black dark:text-white`}
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem={false}
-        >
-          <Header />
-          {isPreview ? (
-            <StoryblokProvider>{children}</StoryblokProvider>
-          ) : (
-            children
-          )}
-          <Footer />
-        </ThemeProvider>
+        <Header />
+        {isPreview ? (
+          <StoryblokProvider>{children}</StoryblokProvider>
+        ) : (
+          children
+        )}
+        <Footer />
       </body>
     </html>
   );
