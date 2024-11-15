@@ -6,21 +6,31 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "proxy": "local-ssl-proxy --source 3010 --target 3000 --cert localhost.pem --key localhost-key.pem",
+    "generate-sb-types": "storyblok pull-components --space=311965 && storyblok-generate-ts source=./components.311965.json target=./types/component-types-sb"
   },
   "dependencies": {
+    "@storyblok/react": "^4.0.0",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.457.0",
+    "next": "15.0.3",
     "react": "19.0.0-rc-66855b96-20241106",
     "react-dom": "19.0.0-rc-66855b96-20241106",
-    "next": "15.0.3"
+    "tailwind-merge": "^2.5.4",
+    "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
-    "typescript": "^5",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
-    "postcss": "^8",
-    "tailwindcss": "^3.4.1",
     "eslint": "^8",
-    "eslint-config-next": "15.0.3"
-  }
+    "eslint-config-next": "15.0.3",
+    "postcss": "^8",
+    "storyblok-generate-ts": "^2.1.0",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5"
+  },
+  "packageManager": "pnpm@9.12.3+sha512.cce0f9de9c5a7c95bef944169cc5dfe8741abfb145078c0d508b868056848a87c81e626246cb60967cbd7fd29a6c062ef73ff840d96b3c86c40ac92cf4a813ee"
 }
