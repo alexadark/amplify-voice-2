@@ -8,7 +8,7 @@ const Home = async ({ params }: { params: { slug?: string[] } }) => {
   const storyPath = !params.slug?.length ? 'home' : params.slug.join('/');
 
   const { data } = await fetchData(storyPath);
-  console.log('data', data.story.content);
+
   const story = data?.story;
 
   if (!story) {
