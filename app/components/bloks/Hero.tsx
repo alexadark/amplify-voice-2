@@ -24,14 +24,18 @@ const Hero = ({ blok }: HeroProps) => {
     switch (blok.vapi_block) {
       case 'glob':
         return (
-          <div className="w-[600px] h-[600px] flex items-center justify-center">
-            <Glob />
+          <div className="relative w-[320px] h-[320px] md:w-[600px] md:h-[600px] my-20 md:my-0 mx-auto">
+            <div className="absolute inset-0 flex items-center justify-center">
+              <Glob />
+            </div>
           </div>
         );
       case 'orb':
         return (
-          <div className=" flex items-center justify-center">
-            <Orb />
+          <div className="relative w-[320px] h-[320px] md:w-[600px] md:h-[600px] mx-auto">
+            <div className="absolute inset-0 flex items-center justify-center">
+              <Orb />
+            </div>
           </div>
         );
       case 'visualizer':

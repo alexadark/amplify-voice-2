@@ -25,7 +25,7 @@ const Header = async () => {
             alt={site_name || 'Logo'}
             width={200}
             height={50}
-            className="h-14 w-auto"
+            className="h-14 w-auto animate-pulse-slower"
             priority
           />
         )}

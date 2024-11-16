@@ -19,8 +19,7 @@ const config: Config = {
       },
       animation: {
         shimmer: 'shimmer 2s linear infinite',
-        'pulse-slow':
-          'pulse-slow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite, pulse-slower 6s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        'pulse-slower': 'pulse-slower 6s cubic-bezier(0.4, 0, 0.6, 1) infinite',
         scroll: 'scroll 40s linear infinite',
         'meteor-effect': 'meteor 5s linear infinite',
       },

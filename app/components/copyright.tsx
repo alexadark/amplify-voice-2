@@ -8,7 +8,7 @@ export const Copyright = ({ siteName }: { siteName: string }) => {
 
   return (
     <div className="text-sm text-gray-600 dark:text-gray-400">
-      © {year} {siteName || 'Company'}. All rights reserved.
+      © {year} {siteName || 'Amplify Voice'}. All rights reserved.
     </div>
   );
 };

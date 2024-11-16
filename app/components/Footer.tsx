@@ -26,7 +26,7 @@ export const Footer = async () => {
                       alt={site_name || 'Logo'}
                       width={200}
                       height={50}
-                      className="h-8 w-auto"
+                      className="h-14 w-auto animate-pulse-slower"
                     />
                   </Link>
                 )}

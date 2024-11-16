@@ -50,9 +50,11 @@ export const Glob: React.FC = () => {
   }, [isSessionActive, volumeLevel]);
 
   return (
-    <div className="relative w-full h-full">
-      <AbstractBall {...config} />
-      <div className="absolute inset-0 flex items-center justify-center">
+    <div className="relative w-[600px] h-[600px]">
+      <div className="absolute inset-0">
+        <AbstractBall {...config} />
+      </div>
+      <div className="absolute top-[250px] left-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
         <Button
           onClick={toggleCall}
           size="lg"
