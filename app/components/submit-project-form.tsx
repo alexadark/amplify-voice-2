@@ -11,20 +11,18 @@ export default function SubmitProjectForm() {
   const [formData, setFormData] = useState({
     firstname: '',
     lastname: '',
+    phone: '',
     email: '',
     company: '',
-    website: '',
-    message: '',
+    project_overview: '',
+    timeline_budget: '',
   });
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -41,142 +39,145 @@ export default function SubmitProjectForm() {
           },
           body: JSON.stringify({
             fields: [
-              {
-                name: 'firstname',
-                value: formData.firstname,
-              },
-              {
-                name: 'lastname',
-                value: formData.lastname,
-              },
-              {
-                name: 'email',
-                value: formData.email,
-              },
-              {
-                name: 'company',
-                value: formData.company,
-              },
-              {
-                name: 'website',
-                value: formData.website,
-              },
-              {
-                name: 'message',
-                value: formData.message,
-              },
+              { name: 'firstname', value: formData.firstname },
+              { name: 'lastname', value: formData.lastname },
+              { name: 'phone', value: formData.phone },
+              { name: 'email', value: formData.email },
+              { name: 'company', value: formData.company },
+              { name: 'message', value: formData.project_overview },
+              { name: 'timeline_budget', value: formData.timeline_budget },
             ],
-            context: {
-              pageUri: window.location.href,
-              pageName: document.title,
-            },
           }),
         }
       );
 
       if (!response.ok) {
-        throw new Error('Failed to submit form');
+        throw new Error('Network response was not ok');
       }
 
-      // Reset form
+      const result = await response.json();
+      console.log('Success:', result);
+
+      // Reset form after successful submission
       setFormData({
         firstname: '',
         lastname: '',
+        phone: '',
         email: '',
         company: '',
-        website: '',
-        message: '',
+        project_overview: '',
+        timeline_budget: '',
       });
-      alert('Form submitted successfully!');
     } catch (error) {
-      console.error('Form submission error:', error);
-      alert('Failed to submit form. Please try again.');
+      console.error('Error submitting form:', error);
     } finally {
       setIsSubmitting(false);
     }
   };
 
   return (
-    <form onSubmit={handleSubmit} className="grid gap-6">
-      <div className="grid grid-cols-2 gap-4">
+    <div className="space-y-6">
+      <p className="text-neutral-600 dark:text-neutral-300">
+        Please provide as much detail about your use case and/or project idea.
+        Once your submit, we&apos;ll reach out to you within 1 business day to
+        schedule a follow up call and assess the viability of your project.
+      </p>
+      <form onSubmit={handleSubmit} className="grid gap-6">
+        <div className="grid grid-cols-2 gap-4">
+          <div className="grid gap-2">
+            <Label htmlFor="firstname">First Name*</Label>
+            <Input
+              id="firstname"
+              name="firstname"
+              placeholder="Enter your first name"
+              value={formData.firstname}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div className="grid gap-2">
+            <Label htmlFor="lastname">Last Name*</Label>
+            <Input
+              id="lastname"
+              name="lastname"
+              placeholder="Enter your last name"
+              value={formData.lastname}
+              onChange={handleChange}
+              required
+            />
+          </div>
+        </div>
+        <div className="grid grid-cols-2 gap-4">
+          <div className="grid gap-2">
+            <Label htmlFor="phone">Phone number*</Label>
+            <Input
+              id="phone"
+              name="phone"
+              type="tel"
+              placeholder="Enter your phone number"
+              value={formData.phone}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div className="grid gap-2">
+            <Label htmlFor="email">Email*</Label>
+            <Input
+              id="email"
+              name="email"
+              type="email"
+              placeholder="Enter your email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+            />
+          </div>
+        </div>
         <div className="grid gap-2">
-          <Label htmlFor="firstname">First name</Label>
+          <Label htmlFor="company">Company name*</Label>
           <Input
-            id="firstname"
-            name="firstname"
-            placeholder="Enter your first name"
-            value={formData.firstname}
+            id="company"
+            name="company"
+            placeholder="Enter your company name"
+            value={formData.company}
             onChange={handleChange}
             required
           />
         </div>
         <div className="grid gap-2">
-          <Label htmlFor="lastname">Last name</Label>
-          <Input
-            id="lastname"
-            name="lastname"
-            placeholder="Enter your last name"
-            value={formData.lastname}
+          <Label htmlFor="project_overview">PROJECT OVERVIEW:*</Label>
+          <Textarea
+            id="project_overview"
+            name="project_overview"
+            placeholder="What are the main reasons you are considering a voice agent?
+What are the most important functions the Voice Agent would do to help your business?"
+            value={formData.project_overview}
             onChange={handleChange}
             required
           />
         </div>
-      </div>
-      <div className="grid gap-2">
-        <Label htmlFor="email">Email</Label>
-        <Input
-          id="email"
-          name="email"
-          type="email"
-          placeholder="Enter your email"
-          value={formData.email}
-          onChange={handleChange}
-          required
+        <div className="grid gap-2">
+          <Label htmlFor="timeline_budget">TIMELINE AND BUDGET:*</Label>
+          <Textarea
+            id="timeline_budget"
+            name="timeline_budget"
+            placeholder="When would you like to start the implementation of the AI voice assistant?
+What is your budget for setting up the AI voice assistant?"
+            value={formData.timeline_budget}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <BorderButton
+          type="submit"
+          label={isSubmitting ? 'Submitting...' : 'Submit'}
+          onClick={(e) => {
+            if (isSubmitting) {
+              e.preventDefault();
+            }
+          }}
         />
-      </div>
-      <div className="grid gap-2">
-        <Label htmlFor="company">Company</Label>
-        <Input
-          id="company"
-          name="company"
-          placeholder="Enter your company name"
-          value={formData.company}
-          onChange={handleChange}
-          required
-        />
-      </div>
-      <div className="grid gap-2">
-        <Label htmlFor="website">Website</Label>
-        <Input
-          id="website"
-          name="website"
-          type="url"
-          placeholder="Enter your website URL"
-          value={formData.website}
-          onChange={handleChange}
-          required
-        />
-      </div>
-      <div className="grid gap-2">
-        <Label htmlFor="message">Message</Label>
-        <Textarea
-          id="message"
-          name="message"
-          placeholder="Tell us about your project"
-          value={formData.message}
-          onChange={handleChange}
-          required
-        />
-      </div>
-      <BorderButton
-        type="submit"
-        label={isSubmitting ? 'Submitting...' : 'Submit'}
-        onClick={(e) => {
-          if (isSubmitting) {
-            e.preventDefault();
-          }
-        }}
-      />
-    </form>
+      </form>
+    </div>
   );
 }
