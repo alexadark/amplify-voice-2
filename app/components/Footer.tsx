@@ -31,6 +31,7 @@ export const Footer = async () => {
                   </Link>
                 )}
               </div>
+              <Copyright siteName={site_name} />
 
               <div className="flex items-center space-x-6">
                 {social_items?.map((social: SocialItemStoryblok) => {
@@ -56,8 +57,6 @@ export const Footer = async () => {
                   );
                 })}
               </div>
-
-              <Copyright siteName={site_name} />
             </div>
           </div>
         </div>
