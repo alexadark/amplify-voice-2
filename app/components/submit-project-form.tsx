@@ -1,103 +1,182 @@
 'use client';
 
-import React from 'react';
-import { Input, Textarea } from '@/components/ui/input';
+import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { BorderButton } from '@/components/ui/tailwindcss-buttons';
+import { Textarea } from '@/components/ui/input';
+import { useState } from 'react';
+import { BorderButton } from './ui/tailwindcss-buttons';
 
-interface SubmitProjectFormProps {
-  onClose?: () => void;
-}
+export default function SubmitProjectForm() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formData, setFormData] = useState({
+    firstname: '',
+    lastname: '',
+    email: '',
+    company: '',
+    website: '',
+    message: '',
+  });
 
-const SubmitProjectForm = ({ onClose }: SubmitProjectFormProps) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch(
+        'https://api.hsforms.com/submissions/v3/integration/submit/145076170/fb941f0f-22c0-4db3-8916-c11363b53c02',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            fields: [
+              {
+                name: 'firstname',
+                value: formData.firstname,
+              },
+              {
+                name: 'lastname',
+                value: formData.lastname,
+              },
+              {
+                name: 'email',
+                value: formData.email,
+              },
+              {
+                name: 'company',
+                value: formData.company,
+              },
+              {
+                name: 'website',
+                value: formData.website,
+              },
+              {
+                name: 'message',
+                value: formData.message,
+              },
+            ],
+            context: {
+              pageUri: window.location.href,
+              pageName: document.title,
+            },
+          }),
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error('Failed to submit form');
+      }
+
+      // Reset form
+      setFormData({
+        firstname: '',
+        lastname: '',
+        email: '',
+        company: '',
+        website: '',
+        message: '',
+      });
+      alert('Form submitted successfully!');
+    } catch (error) {
+      console.error('Form submission error:', error);
+      alert('Failed to submit form. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
-    <form
-      className="my-8 space-y-6"
-      action="https://formspree.io/f/{your-form-id}"
-      method="POST"
-    >
-      <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2">
-        <div className="flex-1 space-y-2">
-          <Label htmlFor="firstname">First Name*</Label>
+    <form onSubmit={handleSubmit} className="grid gap-6">
+      <div className="grid grid-cols-2 gap-4">
+        <div className="grid gap-2">
+          <Label htmlFor="firstname">First name</Label>
           <Input
             id="firstname"
             name="firstname"
-            placeholder="First Name"
-            type="text"
+            placeholder="Enter your first name"
+            value={formData.firstname}
+            onChange={handleChange}
             required
           />
         </div>
-        <div className="flex-1 space-y-2">
-          <Label htmlFor="lastname">Last Name*</Label>
+        <div className="grid gap-2">
+          <Label htmlFor="lastname">Last name</Label>
           <Input
             id="lastname"
             name="lastname"
-            placeholder="Last Name"
-            type="text"
+            placeholder="Enter your last name"
+            value={formData.lastname}
+            onChange={handleChange}
             required
           />
         </div>
       </div>
-
-      <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2">
-        <div className="flex-1 space-y-2">
-          <Label htmlFor="phone">Phone Number*</Label>
-          <Input
-            id="phone"
-            name="phone"
-            placeholder="Phone Number"
-            type="tel"
-            required
-          />
-        </div>
-        <div className="flex-1 space-y-2">
-          <Label htmlFor="email">Email*</Label>
-          <Input
-            id="email"
-            name="email"
-            placeholder="Email"
-            type="email"
-            required
-          />
-        </div>
+      <div className="grid gap-2">
+        <Label htmlFor="email">Email</Label>
+        <Input
+          id="email"
+          name="email"
+          type="email"
+          placeholder="Enter your email"
+          value={formData.email}
+          onChange={handleChange}
+          required
+        />
       </div>
-
-      <div className="space-y-2">
-        <Label htmlFor="company">Company Name*</Label>
+      <div className="grid gap-2">
+        <Label htmlFor="company">Company</Label>
         <Input
           id="company"
           name="company"
-          placeholder="Company Name"
-          type="text"
+          placeholder="Enter your company name"
+          value={formData.company}
+          onChange={handleChange}
           required
         />
       </div>
-
-      <div className="space-y-2">
-        <Label htmlFor="project-overview">Project Overview*</Label>
+      <div className="grid gap-2">
+        <Label htmlFor="website">Website</Label>
+        <Input
+          id="website"
+          name="website"
+          type="url"
+          placeholder="Enter your website URL"
+          value={formData.website}
+          onChange={handleChange}
+          required
+        />
+      </div>
+      <div className="grid gap-2">
+        <Label htmlFor="message">Message</Label>
         <Textarea
-          id="project-overview"
-          name="project-overview"
-          placeholder="What are the main reasons you are considering a voice agent? What are the most important functions the Voice Agent would do to help your business?"
+          id="message"
+          name="message"
+          placeholder="Tell us about your project"
+          value={formData.message}
+          onChange={handleChange}
           required
         />
       </div>
-
-      <div className="space-y-2">
-        <Label htmlFor="timeline-budget">Timeline and Budget*</Label>
-        <Textarea
-          id="timeline-budget"
-          name="timeline-budget"
-          placeholder="When would you like to start the implementation of the AI voice assistant? What is your budget for setting up the AI voice assistant?"
-          required
-        />
-      </div>
-
-      <div className="flex justify-center">
-        <BorderButton label="Submit" type="submit" />
-      </div>
+      <BorderButton
+        type="submit"
+        label={isSubmitting ? 'Submitting...' : 'Submit'}
+        onClick={(e) => {
+          if (isSubmitting) {
+            e.preventDefault();
+          }
+        }}
+      />
     </form>
   );
-};
-
-export default SubmitProjectForm;
+}
