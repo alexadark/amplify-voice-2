@@ -44,8 +44,8 @@ export default function SubmitProjectForm() {
               { name: 'phone', value: formData.phone },
               { name: 'email', value: formData.email },
               { name: 'company', value: formData.company },
-              { name: 'message', value: formData.project_overview },
-              { name: 'timeline_budget', value: formData.timeline_budget },
+              { name: 'project_objectives', value: formData.project_overview },
+              { name: 'timeline_and_budget', value: formData.timeline_budget },
             ],
           }),
         }
