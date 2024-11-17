@@ -8,6 +8,7 @@ import { BorderButton } from './ui/tailwindcss-buttons';
 
 export default function SubmitProjectForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
   const [formData, setFormData] = useState({
     firstname: '',
     lastname: '',
@@ -56,24 +57,27 @@ export default function SubmitProjectForm() {
       }
 
       const result = await response.json();
-      console.log('Success:', result);
-
-      // Reset form after successful submission
-      setFormData({
-        firstname: '',
-        lastname: '',
-        phone: '',
-        email: '',
-        company: '',
-        project_overview: '',
-        timeline_budget: '',
-      });
+      setIsSubmitted(true);
     } catch (error) {
       console.error('Error submitting form:', error);
     } finally {
       setIsSubmitting(false);
     }
   };
+
+  if (isSubmitted) {
+    return (
+      <div className="text-center py-16 space-y-4">
+        <h3 className="text-2xl font-semibold">
+          Thanks for submitting your project idea.
+        </h3>
+        <p className="text-neutral-600 dark:text-neutral-300">
+          Alejo and Paige will get back to you within the next 48 hours. We look
+          forward to exploring the possibility of collaboration with you!
+        </p>
+      </div>
+    );
+  }
 
   return (
     <div className="space-y-6">
