@@ -29,8 +29,8 @@ export const Glob: React.FC = () => {
     if (isSessionActive && volumeLevel > 0) {
       setConfig((prevConfig) => ({
         ...prevConfig,
-        perlinTime: 100.0,
-        perlinMorph: 25.0,
+        perlinTime: 25.0,
+        perlinMorph: 10.0,
       }));
     } else {
       if (isSessionActive) {
