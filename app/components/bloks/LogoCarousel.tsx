@@ -14,7 +14,16 @@ const LogoCarousel = ({ blok }: LogoCarouselProps) => {
     ...logo,
     _uid: `${logo._uid}-duplicate`,
   }));
-  const logos = [...originalLogos, ...duplicatedLogos];
+  const logos = [
+    ...originalLogos,
+    ...duplicatedLogos,
+    ...duplicatedLogos,
+    ...duplicatedLogos,
+    ...duplicatedLogos,
+    ...duplicatedLogos,
+    ...duplicatedLogos,
+    ...duplicatedLogos,
+  ];
 
   return (
     <div
