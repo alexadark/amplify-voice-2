@@ -40,13 +40,13 @@ export default function SubmitProjectForm() {
           },
           body: JSON.stringify({
             fields: [
-              { name: 'firstname', value: formData.firstname },
-              { name: 'lastname', value: formData.lastname },
-              { name: 'phone', value: formData.phone },
-              { name: 'email', value: formData.email },
-              { name: 'company', value: formData.company },
-              { name: 'project_objectives', value: formData.project_overview },
-              { name: 'timeline_and_budget', value: formData.timeline_budget },
+              { name: 'firstname', value: formData.firstname, objectId: 'field-firstname' },
+              { name: 'lastname', value: formData.lastname, objectId: 'field-lastname' },
+              { name: 'phone', value: formData.phone, objectId: 'field-phone' },
+              { name: 'email', value: formData.email, objectId: 'field-email' },
+              { name: 'company', value: formData.company, objectId: 'field-company' },
+              { name: 'project_objectives', value: formData.project_overview, objectId: 'field-project' },
+              { name: 'timeline_and_budget', value: formData.timeline_budget, objectId: 'field-timeline' },
             ],
           }),
         }
