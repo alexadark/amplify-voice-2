@@ -54,6 +54,7 @@ const SubmitForm = ({ blok }: SubmitFormProps) => {
         {isModalOpen && (
           <>
             <motion.div
+              key="modal-backdrop"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -62,21 +63,71 @@ const SubmitForm = ({ blok }: SubmitFormProps) => {
               onClick={() => setIsModalOpen(false)}
             />
             <motion.div
+              key="modal-content"
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
               transition={{
                 duration: 0.2,
-                ease: [0.16, 1, 0.3, 1], // custom ease
+                ease: [0.16, 1, 0.3, 1],
               }}
               className="fixed inset-0 flex items-center justify-center z-50 p-4"
             >
+              {' '}
+              <AnimatePresence>
+                {isModalOpen && (
+                  <div key="modal-wrapper">
+                    <motion.div
+                      key="modal-backdrop"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.2 }}
+                      className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50"
+                      onClick={() => setIsModalOpen(false)}
+                    />
+                    <motion.div
+                      key="modal-content"
+                      initial={{ opacity: 0, scale: 0.95, y: 20 }}
+                      animate={{ opacity: 1, scale: 1, y: 0 }}
+                      exit={{ opacity: 0, scale: 0.95, y: 20 }}
+                      transition={{
+                        duration: 0.2,
+                        ease: [0.16, 1, 0.3, 1],
+                      }}
+                      className="fixed inset-0 flex items-center justify-center z-50 p-4"
+                    >
+                      <div
+                        ref={modalRef}
+                        className="bg-black border border-neutral-800 p-6 rounded-lg shadow-xl w-full max-w-2xl relative"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        <motion.button
+                          key="modal-close-button"
+                          initial={{ opacity: 0, scale: 0.8 }}
+                          animate={{ opacity: 1, scale: 1 }}
+                          exit={{ opacity: 0, scale: 0.8 }}
+                          transition={{ delay: 0.1 }}
+                          onClick={() => setIsModalOpen(false)}
+                          className="absolute top-4 right-4 p-2 rounded-full hover:bg-neutral-800 transition-colors"
+                        >
+                          <X className="w-6 h-6 text-neutral-400" />
+                        </motion.button>
+                        <SubmitProjectForm
+                          onClose={() => setIsModalOpen(false)}
+                        />
+                      </div>
+                    </motion.div>
+                  </div>
+                )}
+              </AnimatePresence>
               <div
                 ref={modalRef}
                 className="bg-black border border-neutral-800 p-6 rounded-lg shadow-xl w-full max-w-2xl relative"
                 onClick={(e) => e.stopPropagation()}
               >
                 <motion.button
+                  key="modal-close-button"
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.8 }}
