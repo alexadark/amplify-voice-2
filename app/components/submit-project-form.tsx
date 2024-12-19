@@ -6,7 +6,11 @@ import { Textarea } from '@/components/ui/input';
 import { useState } from 'react';
 import { BorderButton } from './ui/tailwindcss-buttons';
 
-export default function SubmitProjectForm() {
+export interface SubmitProjectFormProps {
+  onClose?: () => void;
+}
+
+export default function SubmitProjectForm({ onClose }: SubmitProjectFormProps) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [formData, setFormData] = useState({
@@ -40,13 +44,48 @@ export default function SubmitProjectForm() {
           },
           body: JSON.stringify({
             fields: [
-              { name: 'firstname', value: formData.firstname, objectId: 'field-firstname', key: 'firstname' },
-              { name: 'lastname', value: formData.lastname, objectId: 'field-lastname', key: 'lastname' },
-              { name: 'phone', value: formData.phone, objectId: 'field-phone', key: 'phone' },
-              { name: 'email', value: formData.email, objectId: 'field-email', key: 'email' },
-              { name: 'company', value: formData.company, objectId: 'field-company', key: 'company' },
-              { name: 'project_objectives', value: formData.project_overview, objectId: 'field-project', key: 'project_objectives' },
-              { name: 'timeline_and_budget', value: formData.timeline_budget, objectId: 'field-timeline', key: 'timeline_budget' },
+              {
+                name: 'firstname',
+                value: formData.firstname,
+                objectId: 'field-firstname',
+                key: 'firstname',
+              },
+              {
+                name: 'lastname',
+                value: formData.lastname,
+                objectId: 'field-lastname',
+                key: 'lastname',
+              },
+              {
+                name: 'phone',
+                value: formData.phone,
+                objectId: 'field-phone',
+                key: 'phone',
+              },
+              {
+                name: 'email',
+                value: formData.email,
+                objectId: 'field-email',
+                key: 'email',
+              },
+              {
+                name: 'company',
+                value: formData.company,
+                objectId: 'field-company',
+                key: 'company',
+              },
+              {
+                name: 'project_objectives',
+                value: formData.project_overview,
+                objectId: 'field-project',
+                key: 'project_objectives',
+              },
+              {
+                name: 'timeline_and_budget',
+                value: formData.timeline_budget,
+                objectId: 'field-timeline',
+                key: 'timeline_budget',
+              },
             ],
           }),
         }
@@ -58,6 +97,7 @@ export default function SubmitProjectForm() {
 
       const result = await response.json();
       setIsSubmitted(true);
+      onClose?.();
     } catch (error) {
       console.error('Error submitting form:', error);
     } finally {
