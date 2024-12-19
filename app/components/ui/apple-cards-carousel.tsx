@@ -25,7 +25,7 @@ type Card = {
   src: string;
   title: string;
   category: string;
-  description: string;
+  description: React.ReactNode;
   content: React.ReactNode;
 };
 
@@ -232,7 +232,14 @@ export const Card = ({
               >
                 {card.title}
               </motion.p>
-              <div className="py-10">{card.content}</div>
+              <div className="py-10">
+                <motion.div
+                  layoutId={layout ? `description-${card.title}` : undefined}
+                  className="text-white text-sm md:text-base font-sans text-left leading-relaxed [&_p]:text-white [&_ul]:text-white [&_li]:text-white [&_span]:text-white [&_p]:my-2 [&_ul]:list-disc [&_ul]:ml-4 [&_li]:my-1 [&_li]:relative [&_li]:pl-4 before:[&_li]:content-['•'] before:[&_li]:absolute before:[&_li]:left-0 before:[&_li]:text-white"
+                >
+                  {card.description}
+                </motion.div>
+              </div>
             </motion.div>
           </div>
         )}
@@ -259,20 +266,9 @@ export const Card = ({
             </motion.p>
             <motion.div
               layoutId={layout ? `description-${card.title}` : undefined}
-              className="text-white/90 text-sm md:text-lg font-sans text-left leading-relaxed space-y-2"
+              className="text-white/90 text-sm md:text-lg font-sans text-left leading-relaxed space-y-2 prose"
             >
-              {card.description.split('\n').map((item, i) => (
-                <p key={i} className="flex items-start gap-2">
-                  {item.startsWith('- ') ? (
-                    <>
-                      <span className="text-white/60 mt-2">•</span>
-                      <span>{item.replace('- ', '')}</span>
-                    </>
-                  ) : (
-                    item
-                  )}
-                </p>
-              ))}
+              {card.description}
             </motion.div>
           </div>
         </div>

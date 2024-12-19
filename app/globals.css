@@ -63,6 +63,9 @@ body {
 }
 
 @layer base {
+  span {
+    @apply !text-white;
+  }
   * {
     @apply border-border;
   }
