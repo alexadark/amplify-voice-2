@@ -76,7 +76,7 @@ const SubmitForm = ({ blok }: SubmitFormProps) => {
               <div
                 ref={modalRef}
                 key="modal-wrapper"
-                className="bg-black border border-neutral-800 p-6 rounded-lg shadow-xl w-full max-w-2xl relative"
+                className="bg-black border border-neutral-800 p-6 rounded-lg shadow-xl w-full max-w-2xl relative max-h-[90vh] overflow-y-auto scrollbar-thin scrollbar-thumb-neutral-800 scrollbar-track-transparent"
                 onClick={(e) => e.stopPropagation()}
               >
                 <motion.button
