@@ -12,7 +12,7 @@ const ServicesSection = ({ blok }: ServicesSectionProps) => {
     blok.services?.map((service) => ({
       title: service.title || '',
       description: service.description || '',
-      link: service.link?.cached_url || `#${service._uid}`,
+      link: '#submit-project',
       label: service.label || 'Learn More',
     })) || [];
 

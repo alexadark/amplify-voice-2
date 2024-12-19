@@ -17,7 +17,16 @@ export const HoverEffect = ({
   }[];
   className?: string;
 }) => {
-  let [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+
+  const handleClick = (link: string) => {
+    if (link.startsWith('#')) {
+      const element = document.querySelector(link);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  };
 
   return (
     <div
@@ -28,7 +37,7 @@ export const HoverEffect = ({
     >
       {items.map((item, idx) => (
         <div
-          key={item?.link}
+          key={`service-card-${idx}`}
           className="relative group block p-2 min-h-[300px]"
           onMouseEnter={() => setHoveredIndex(idx)}
           onMouseLeave={() => setHoveredIndex(null)}
@@ -59,7 +68,7 @@ export const HoverEffect = ({
               <div>
                 <BorderButton
                   label={item.label || 'Learn More'}
-                  href={item.link}
+                  onClick={() => handleClick(item.link)}
                 />
               </div>
             </div>
