@@ -19,8 +19,10 @@ export default function SubmitProjectForm({ onClose }: SubmitProjectFormProps) {
     phone: '',
     email: '',
     company: '',
-    project_overview: '',
-    timeline_budget: '',
+    project_objectives: '',
+    timeline: '',
+    project_budget: '',
+    monthly_revenue: '',
   });
 
   const handleChange = (
@@ -36,7 +38,7 @@ export default function SubmitProjectForm({ onClose }: SubmitProjectFormProps) {
 
     try {
       const response = await fetch(
-        'https://api.hsforms.com/submissions/v3/integration/submit/145076170/fb941f0f-22c0-4db3-8916-c11363b53c02',
+        'https://api.hsforms.com/submissions/v3/integration/submit/5be8fe3d-547c-4ce6-b2ad-c157aa7b021d',
         {
           method: 'POST',
           headers: {
@@ -76,15 +78,27 @@ export default function SubmitProjectForm({ onClose }: SubmitProjectFormProps) {
               },
               {
                 name: 'project_objectives',
-                value: formData.project_overview,
+                value: formData.project_objectives,
                 objectId: 'field-project',
                 key: 'project_objectives',
               },
               {
-                name: 'timeline_and_budget',
-                value: formData.timeline_budget,
+                name: '0-2/timeline',
+                value: formData.timeline,
                 objectId: 'field-timeline',
-                key: 'timeline_budget',
+                key: 'timeline',
+              },
+              {
+                name: '0-2/project_budget',
+                value: formData.project_budget,
+                objectId: 'field-budget',
+                key: 'project_budget',
+              },
+              {
+                name: '0-2/monthly_revenue',
+                value: formData.monthly_revenue,
+                objectId: 'field-revenue',
+                key: 'monthly_revenue',
               },
             ],
           }),
@@ -129,22 +143,20 @@ export default function SubmitProjectForm({ onClose }: SubmitProjectFormProps) {
       <form onSubmit={handleSubmit} className="grid gap-6">
         <div className="grid grid-cols-2 gap-4">
           <div className="grid gap-2">
-            <Label htmlFor="firstname">First Name*</Label>
+            <Label htmlFor="firstname">First Name *</Label>
             <Input
               id="firstname"
               name="firstname"
-              placeholder="Enter your first name"
               value={formData.firstname}
               onChange={handleChange}
               required
             />
           </div>
           <div className="grid gap-2">
-            <Label htmlFor="lastname">Last Name*</Label>
+            <Label htmlFor="lastname">Last Name *</Label>
             <Input
               id="lastname"
               name="lastname"
-              placeholder="Enter your last name"
               value={formData.lastname}
               onChange={handleChange}
               required
@@ -153,24 +165,22 @@ export default function SubmitProjectForm({ onClose }: SubmitProjectFormProps) {
         </div>
         <div className="grid grid-cols-2 gap-4">
           <div className="grid gap-2">
-            <Label htmlFor="phone">Phone number*</Label>
+            <Label htmlFor="phone">Phone number *</Label>
             <Input
               id="phone"
               name="phone"
               type="tel"
-              placeholder="Enter your phone number"
               value={formData.phone}
               onChange={handleChange}
               required
             />
           </div>
           <div className="grid gap-2">
-            <Label htmlFor="email">Email*</Label>
+            <Label htmlFor="email">Email *</Label>
             <Input
               id="email"
               name="email"
               type="email"
-              placeholder="Enter your email"
               value={formData.email}
               onChange={handleChange}
               required
@@ -178,36 +188,64 @@ export default function SubmitProjectForm({ onClose }: SubmitProjectFormProps) {
           </div>
         </div>
         <div className="grid gap-2">
-          <Label htmlFor="company">Company name*</Label>
+          <Label htmlFor="company">Company name *</Label>
           <Input
             id="company"
             name="company"
-            placeholder="Enter your company name"
             value={formData.company}
             onChange={handleChange}
             required
           />
         </div>
         <div className="grid gap-2">
-          <Label htmlFor="project_overview">PROJECT OVERVIEW:*</Label>
+          <Label htmlFor="project_objectives">Project Overview *</Label>
+          <p className="text-sm text-neutral-600 dark:text-neutral-400">
+            Describe your business and use case for an AI voice assistant.
+            Please be as detailed as possible. (The more detail, the better to
+            get the most out of our call)
+          </p>
           <Textarea
-            id="project_overview"
-            name="project_overview"
-            placeholder="What are the main reasons you are considering a voice agent?
-What are the most important functions the Voice Agent would do to help your business?"
-            value={formData.project_overview}
+            id="project_objectives"
+            name="project_objectives"
+            value={formData.project_objectives}
             onChange={handleChange}
             required
           />
         </div>
         <div className="grid gap-2">
-          <Label htmlFor="timeline_budget">TIMELINE AND BUDGET:*</Label>
-          <Textarea
-            id="timeline_budget"
-            name="timeline_budget"
-            placeholder="When would you like to start the implementation of the AI voice assistant?
-What is your budget for setting up the AI voice assistant?"
-            value={formData.timeline_budget}
+          <Label htmlFor="timeline">
+            What is your ideal timeline for implementing your Voice Agent? *
+          </Label>
+          <Input
+            id="timeline"
+            name="timeline"
+            value={formData.timeline}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div className="grid gap-2">
+          <Label htmlFor="project_budget">Budget *</Label>
+          <p className="text-sm text-neutral-600 dark:text-neutral-400">
+            What is your budget for this project?
+          </p>
+          <Input
+            id="project_budget"
+            name="project_budget"
+            value={formData.project_budget}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div className="grid gap-2">
+          <Label htmlFor="monthly_revenue">Monthly Revenue *</Label>
+          <p className="text-sm text-neutral-600 dark:text-neutral-400">
+            How much monthly revenue is your team generating?
+          </p>
+          <Input
+            id="monthly_revenue"
+            name="monthly_revenue"
+            value={formData.monthly_revenue}
             onChange={handleChange}
             required
           />
