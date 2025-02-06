@@ -32,20 +32,28 @@ const Header = async () => {
       </Link>
 
       {/* Desktop Navigation */}
-      <div className="hidden md:flex items-center gap-8">
+      <div className="hidden md:flex items-center gap-4">
         <nav className="flex items-center gap-8">
           {header_nav?.map((blok: NavItemStoryblok) => (
             <StoryblokServerComponent key={blok._uid} blok={blok} />
           ))}
         </nav>
 
-        {cta_label && cta_link?.cached_url && (
+        <div className="flex items-center gap-4">
+          {cta_label && cta_link?.cached_url && (
+            <BorderButton
+              label={cta_label}
+              href={cta_link.cached_url}
+              external={true}
+            />
+          )}
           <BorderButton
-            label={cta_label}
-            href={cta_link.cached_url}
-            external={cta_link.target === '_blank'}
+            label="Book a Demo"
+            href="https://calendly.com/amplifyvoiceai/demo-call"
+            variant="primary"
+            external={true}
           />
-        )}
+        </div>
       </div>
 
       {/* Mobile Navigation */}
@@ -57,6 +65,12 @@ const Header = async () => {
             cta={{
               label: cta_label,
               link: cta_link,
+            }}
+            secondaryCta={{
+              label: "Book a Demo",
+              link: {
+                cached_url: "https://calendly.com/amplifyvoiceai/demo-call"
+              }
             }}
           />
         )}

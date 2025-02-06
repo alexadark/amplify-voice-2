@@ -15,9 +15,16 @@ interface MobileMenuProps {
       target?: string;
     };
   };
+  secondaryCta?: {
+    label: string;
+    link: {
+      cached_url: string;
+      target?: string;
+    };
+  };
 }
 
-export const MobileMenu = ({ nav, cta }: MobileMenuProps) => {
+export const MobileMenu = ({ nav, cta, secondaryCta }: MobileMenuProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -43,15 +50,23 @@ export const MobileMenu = ({ nav, cta }: MobileMenuProps) => {
                 {item.label}
               </Link>
             ))}
-            {cta.label && (
-              <div className="mt-4">
+            <div className="mt-4 flex flex-col gap-4">
+              {cta.label && (
                 <BorderButton
                   label={cta.label}
                   href={cta.link.cached_url}
                   external={cta.link.target === '_blank'}
                 />
-              </div>
-            )}
+              )}
+              {secondaryCta && (
+                <BorderButton
+                  label={secondaryCta.label}
+                  href="https://calendly.com/amplifyvoiceai/demo-call"
+                  external={true}
+                  variant="primary"
+                />
+              )}
+            </div>
           </nav>
         </div>
       )}
