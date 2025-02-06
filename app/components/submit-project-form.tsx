@@ -154,7 +154,6 @@ export default function SubmitProjectForm({ onClose }: SubmitProjectFormProps) {
 
       console.log('Form submitted successfully:', responseData);
       setIsSubmitted(true);
-      onClose?.();
     } catch (error: any) {
       console.error('Error submitting form:', error);
       // Show error to user with more details
@@ -166,14 +165,32 @@ export default function SubmitProjectForm({ onClose }: SubmitProjectFormProps) {
 
   if (isSubmitted) {
     return (
-      <div className="text-center py-16 space-y-4">
-        <h3 className="text-2xl font-semibold">
-          Thanks for submitting your project idea.
+      <div className="text-center py-16 space-y-6">
+        <h3 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-500 to-blue-500">
+          Thanks for submitting your project idea!
         </h3>
-        <p className="text-neutral-600 dark:text-neutral-300">
-          Alejo and Paige will get back to you within the next 48 hours. We look
-          forward to exploring the possibility of collaboration with you!
-        </p>
+        <div className="space-y-4">
+          <p className="text-neutral-600 dark:text-neutral-300">
+            We're excited to explore how we can help bring your vision to life with AI voice technology.
+          </p>
+          <p className="text-neutral-600 dark:text-neutral-300">
+            <span className="font-semibold">Next Steps:</span>
+          </p>
+          <div className="max-w-lg mx-auto text-left space-y-2 text-neutral-600 dark:text-neutral-300">
+            <p>1. Check your email for a confirmation message</p>
+            <p>2. Click the link in the email to book your exclusive strategy call</p>
+            <p>3. During the call, we'll discuss your project in detail and explore the best path forward</p>
+          </div>
+          <p className="text-sm text-neutral-500 dark:text-neutral-400 mt-6">
+            Can't find the email? Check your spam folder or reach out to us at hello@amplifyvoice.ai
+          </p>
+        </div>
+        <div className="mt-8">
+          <BorderButton
+            label="I booked a call!"
+            onClick={onClose}
+          />
+        </div>
       </div>
     );
   }
