@@ -5,7 +5,11 @@ import useVapi from '@/hooks/use-vapi';
 import { Button } from '@/components/ui/button';
 import { MicIcon, PhoneOff } from 'lucide-react';
 
-export const Glob: React.FC = () => {
+interface GlobProps {
+  onMicClick?: () => void;
+}
+
+export const Glob = ({ onMicClick }: GlobProps) => {
   const { volumeLevel, isSessionActive, toggleCall } = useVapi();
   const [config, setConfig] = useState({
     perlinTime: 50.0,
@@ -56,7 +60,10 @@ export const Glob: React.FC = () => {
       </div>
       <div className="absolute top-[250px] left-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
         <Button
-          onClick={toggleCall}
+          onClick={() => {
+            toggleCall();
+            onMicClick?.();
+          }}
           size="lg"
           className="rounded-full p-6 bg-white/20 backdrop-blur-sm hover:bg-white/40 transition-all duration-300"
         >

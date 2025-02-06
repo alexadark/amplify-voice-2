@@ -34,12 +34,7 @@ const Hero = ({ blok }: HeroProps) => {
               {blok.SayHello}
             </p>
             <div className="absolute inset-0 flex items-center justify-center">
-              <div 
-                onClick={() => setShowText(true)} 
-                className="cursor-pointer transition-transform hover:scale-105"
-              >
-                <Glob />
-              </div>
+              <Glob onMicClick={() => setShowText(true)} />
             </div>
             {showText && (
               <p className="absolute bottom-0 left-0 right-0 text-2xl md:text-4xl text-center font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-500 to-blue-500 animate-fade-in animate-pulse">
