@@ -1,15 +1,19 @@
+'use client';
+
 import { HeroStoryblok } from '@/types/component-types-sb';
 import { WavyBackground } from '../ui/wavy-background';
 import Image from 'next/image';
 import { BorderButton } from '../ui/tailwindcss-buttons';
 import { Glob, Orb, Visualizer } from '@/components/vapi';
 import { storyblokEditable } from '@storyblok/react/rsc';
+import { useState } from 'react';
 
 interface HeroProps {
   blok: HeroStoryblok;
 }
 
 const Hero = ({ blok }: HeroProps) => {
+  const [showText, setShowText] = useState(false);
   const hasVisual = blok.image || blok.vapi_block;
 
   const renderVapiComponent = () => {
@@ -25,9 +29,25 @@ const Hero = ({ blok }: HeroProps) => {
       case 'glob':
         return (
           <div className="relative w-[320px] h-[320px] md:w-[600px] md:h-[600px] my-20 md:my-0 mx-auto">
+            <p className="absolute top-0 left-0 right-0 text-2xl md:text-4xl text-center font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-500 to-blue-500 animate-fade-in animate-pulse">
+              Click To Say "Hi" To Saya!
+              {blok.SayHello}
+            </p>
             <div className="absolute inset-0 flex items-center justify-center">
-              <Glob />
+              <div 
+                onClick={() => setShowText(true)} 
+                className="cursor-pointer transition-transform hover:scale-105"
+              >
+                <Glob />
+              </div>
             </div>
+            {showText && (
+              <p className="absolute bottom-0 left-0 right-0 text-2xl md:text-4xl text-center font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-500 to-blue-500 animate-fade-in animate-pulse">
+                {blok.EnableMic}
+                Enable Your Mic &
+                Experience the Future of Voice AI Agents
+              </p>
+            )}
           </div>
         );
       case 'orb':
