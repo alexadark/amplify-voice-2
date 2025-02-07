@@ -12,11 +12,24 @@ export async function fetchData(url: string) {
 
   const sbApi = getStoryblokApi();
 
-  const response = await sbApi?.get(`cdn/stories/${url}`, sbParams, {
-    next: {
-      revalidate: isPreview ? 0 : 31536000,
-    },
-  });
+  try {
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 5000); // 5 second timeout
 
-  return response;
+    const response = await sbApi?.get(`cdn/stories/${url}`, sbParams, {
+      next: {
+        revalidate: isPreview ? 0 : 3600, // Reduced to 1 hour instead of 1 year
+      },
+      signal: controller.signal,
+    });
+
+    clearTimeout(timeoutId);
+    return response;
+  } catch (error: any) {
+    if (error.name === 'AbortError') {
+      throw new Error('Request timeout: The Storyblok API request took too long to respond');
+    }
+    console.error('Error fetching from Storyblok:', error);
+    throw error;
+  }
 }
